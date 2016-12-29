@@ -1,0 +1,31 @@
+extends layout
+block content
+    div.col-xs-10
+        table.table
+            thead
+                tr
+                    th Course ID
+                    th Course Name
+                    th Course Date
+                    th Duration
+                    th Enroll End Date
+                    th Teacher
+                    th Seat
+                    th Status
+            tbody#courseList
+                each openCourse in openCourses
+                    tr
+                        //如果没有剩余座位，课程链接失效
+                        if openCourse.value.SeatLeft
+                            td
+                                a(href="/user/courseDetail?id=" +openCourse.value.id)= openCourse.value.CourseID
+                        else
+                            td
+                                a= openCourse.value.CourseID
+                        td= openCourse.value.CourseName
+                        td= openCourse.value.CDate
+                        td= openCourse.value.Duration
+                        td= openCourse.value.EnrEndD
+                        td= openCourse.value.Teacher
+                        td= openCourse.value.SeatLeft + '/' + openCourse.value.Seat
+                        td Open

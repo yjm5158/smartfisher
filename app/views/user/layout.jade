@@ -1,0 +1,18 @@
+extends ../layout
+
+block main
+    block header
+        div.container
+            div.row
+                div.col-xs-12
+                    h1.text-center
+                        | IGA Training Enroll System
+    block sidebar
+        div.row
+            div.col-xs-2
+                ul.nav.nav-list
+                    li
+                        a(href='/user/courseList') Open Course
+                    li
+                        a(href='#') My Course
+            block content

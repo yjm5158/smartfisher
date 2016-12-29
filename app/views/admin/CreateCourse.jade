@@ -1,0 +1,53 @@
+extends layout
+block content
+    .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+        h1.page-header Create New Course
+        form(method='post', action='/admin/createCourse' enctype='multipart/form-data')
+            div.form-group
+                label(for='CourseID') Course ID
+                input#CourseID.form-control(name='CourseID',type='text', placeholder='Enter Course ID')
+            div.form-group
+                label(for='CourseName') Course Name
+                input#CourseName.form-control(name='CourseName',type='text', placeholder='Enter Course Name')
+            div.form-group
+                label(for='CDate') Course Start Time
+                input#CDate.form-control(name='CDate',type='text')
+            div.form-group
+                label(for='EnrEndD') Enroll End Time
+                input#EnrEndD.form-control(name='EnrEndD',type='text', placeholder='Enter Enroll End Time(Format:YYYY/MM/DD HH24:MI:SS)')
+            div.form-group
+                label(for='FdEndD') Feedback End Time
+                input#FdEndD.form-control(name='FdEndD',type='text', placeholder='Enter Feedback End Time(Format:YYYY/MM/DD HH24:MI:SS)')
+            div.form-group
+                label(for='Duration') Duration
+                input#Duration.form-control(name='Duration',type='number', placeholder='Enter Course Duration(min)')
+            div.form-group
+                label(for='Seat') Course Seat
+                input#Seat.form-control(name='Seat',type='number', placeholder='Enter Course Seat Limit')
+            div.form-group
+                label(for='Teacher') Course Teacher
+                input#Teacher.form-control(name='Teacher',type='text', placeholder='Enter Course Teacher Intranet ID or Notes ID')
+            div.form-group
+                label(for='Location') Location
+                &nbsp;&nbsp;&nbsp;
+                input#inlineRadio1(type='radio', name='Location', value='Da Lian' checked="checked")
+                |  Da Lian
+                label.radio-inline
+                input#inlineRadio2(type='radio', name='Location', value='Cheng Du')
+                |  Cheng Du
+                label.radio-inline
+                input#inlineRadio3(type='radio', name='Location', value='Wu Han')
+                |  Wu Han
+            div.form-group
+                label(for='TeacherDescr') Teacher Description
+                textarea#TeacherDescr.form-control(name='TeacherDescr',row='3')
+            div.form-group
+                label(for='Descr') Course Description
+                textarea#Descr.form-control(name='Descr',row='3')
+            div.form-group
+                label(for='CourseLogo') Course Logo
+                input#CourseLogo(name='CourseLogo',type='file' accept='image/*')
+            button.btn.btn-primary(type='submit') Create
+block scripts
+    script(src='/components/datetimepicker/js/bootstrap-datetimepicker.js')
+    script(src='/js/admin/createCourse.js')

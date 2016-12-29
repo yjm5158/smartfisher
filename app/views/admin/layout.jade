@@ -1,0 +1,29 @@
+extends ../layout
+
+block main
+    nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/user/courseList') Enroll-Feedback system
+        #navbar.navbar-collapse.collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='#') logout
+            li
+              a(href='#') help
+    .container-fluid
+      .row
+        .col-sm-3.col-md-2.sidebar
+          ul.nav.nav-sidebar
+            li.active
+              a(href='/admin/dashboard') Course Control
+            li
+              a(href='/admin/dashboard/create') Create Course
+            li
+              a(href='/admin/bashboard/Feedback') Feedback
+        block content

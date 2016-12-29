@@ -1,0 +1,39 @@
+extends layout
+block content
+    div.col-xs-10
+        form(method="post", action="/user/courseDetail/enroll")
+            div.form-group
+                label Course ID :
+                label=courseDetail[0].value.CourseID
+                input(name="id", type='hidden',value=courseDetail[0].value.id)
+            div.form-group
+                label Course Name :
+                label=courseDetail[0].value.CourseName
+            div.form-group
+                label Course Date :
+                label=courseDetail[0].value.CDate
+            div.form-group
+                label Duration :
+                label=courseDetail[0].value.Duration
+            div.form-group
+                label Enroll End Date :
+                label=courseDetail[0].value.EnrEndD
+            div.form-group
+                label Teacher :
+                label=courseDetail[0].value.Teacher
+            div.form-group
+                label Seat :
+                label=courseDetail[0].value.SeatLeft+ '/'+courseDetail[0].value.Seat
+            div.form-group
+                label Location :
+                label=courseDetail[0].value.Location
+            div.form-group
+                label Description :
+                label=courseDetail[0].value.Descr
+            != messages()
+            if courseDetail[0].value.Teacher === IntranetID
+                a.btn.btn-primary(href="/user/courseDetail/enrollList?id=" + courseDetail[0].value.id) Enroll List
+            else
+                button.btn.btn-primary(type='submit') Enroll
+            | &nbsp;&nbsp;
+            a.btn.btn-danger(href='/user/courseList') Go Back

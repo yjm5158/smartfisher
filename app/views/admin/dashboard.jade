@@ -1,0 +1,53 @@
+extends layout
+block content
+    .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+        h1.page-header Dashboard
+        .table-responsive
+            table.table.table-striped
+                thead
+                    tr
+                        th Course ID
+                        th Course Name
+                        th Course Date
+                        th Teacher
+                        th Enroll Count
+                        th Status
+                        th management
+                        th export to CVS
+                tbody
+                    each course in courseList
+                        tr
+                            td=course.CourseID
+                            td=course.CourseName
+                            td=course.CDate
+                            td=course.Teacher
+                            td=course.Seat-course.SeatLeft
+                            td=course.status
+                            td 
+                                a(href="#", class="btn btn-sm btn-success", target="_blank") View
+                                &nbsp;&nbsp;
+                                a(href="#", class="btn btn-sm btn-info  ") Edit
+                                &nbsp;&nbsp;
+                                a(href="#", class="btn btn-sm btn-danger") Delete
+                            td
+                                a(href="#", class="btn btn-sm btn-success") Enroll List
+                                &nbsp;&nbsp;
+                                a(href="#", class="btn btn-sm btn-danger") Feedback
+            if totalPage > 1
+                nav
+                    ul.pagination
+                        li
+                            a(href="/admin/dashboard?pageNum=1")&laquo;
+                        - var currentPage = 1
+                        while currentPage <= totalPage
+                            if (currentPage === pageNum)
+                                li.active
+                                    a(href="/admin/dashboard?pageNum=" + currentPage)= currentPage++
+                            else
+                                li
+                                    a(href="/admin/dashboard?pageNum=" + currentPage)= currentPage++
+                        li
+                            a(href="/admin/dashboard?pageNum=" + totalPage)&raquo;
+block scripts
+    script $(document).ready(function () { console.log('dom ready'); });
+                        

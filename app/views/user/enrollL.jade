@@ -1,0 +1,11 @@
+extends layout
+block content
+    div.col-xs-10
+        table.table
+            thead
+                tr
+                    th Enrolled employee
+            tbody#enrollList
+                each employee in enrollList
+                    tr
+                        td= employee.IntranetID
